@@ -32,11 +32,11 @@ namespace BooksStoreGUI
             var reselt = booksStoreBL.HighCostBooks();
             highCost.ItemsSource = reselt;
 
-            var reseltC = booksStoreBL.CostOfComics().Select(l => l.Price);
-            CostComics.ItemsSource = reseltC;
+            var reseltC = booksStoreBL.CostOfComics();
+            CostComics.ItemsSource = reseltC.Select(l => new { l.Price }).ToList();
 
-            var reseltB = booksStoreBL.NameBookForGirl().Select(l =>l.Name);
-            BookForGirl.ItemsSource = reseltB;
+            var reseltB = booksStoreBL.NameBookForGirl();
+            BookForGirl.ItemsSource = reseltB.Select(l => new { l.Name }).ToList();
         }
     }
 }
